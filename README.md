@@ -1,13 +1,14 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Iniciando o projeto
 
+- SO Linux Ubuntu 20.04
 - PHP 7.4.27 
-- "laravel/framework": "^7.0",
+- laravel 7.0
 
 Iniciei com `git flow init`
+
+`sudo chmod -R 777 storage`
+
+> Nome do database: app_4bb61698
+- CREATE DATABASE `app_4bb61698` /*!40100 COLLATE 'utf8mb4_general_ci' */;
