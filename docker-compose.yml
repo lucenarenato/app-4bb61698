@@ -3,7 +3,7 @@ version: '3.7'
 services:
   site:
     build: .deployment
-    container_name: stage
+    container_name: app
     ports:
       - 8000:80
       - 8443:443
@@ -12,6 +12,29 @@ services:
       - .:/var/www/app-4bb61698
     networks:
       - laravel
+  db:
+    container_name: 'mdb'
+    image: 'mariadb:latest'
+    restart: unless-stopped
+    tty: true
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_DATABASE=app_4bb61698
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=renato
+      - MYSQL_USER=renato
+      - MYSQL_ALLOW_EMPTY_PASSWORD='yes'
+      - TZ=America/Sao_Paulo
+    volumes:
+      # - .deployment/db:/var/lib/mysql
+      - ./database/dbdata:/var/lib/mysql
+    networks:
+      - laravel
 networks:
   laravel:
     driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

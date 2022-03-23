@@ -18,7 +18,7 @@ class Products extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name', 'sku', 'quantity', 'price', 'arbitrary_sku_field_name'];
+    protected $fillable = ['name', 'sku', 'quantity', 'price', 'description', 'arbitrary_sku_field_name'];
 
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
@@ -30,7 +30,7 @@ class Products extends Model
     public function skuOptions(): SkuOptions
     {
         return SkuOptions::make()
-            ->from(['label', 'another_field'])
+            ->from(['id', 'name'])
             ->target('arbitrary_sku_field_name')
             ->using('_')
             ->forceUnique(false)

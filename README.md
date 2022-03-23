@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="2022-03-23_10-16.png" width="400"></p>
 
 > Usei bitbucket
 
@@ -30,6 +30,15 @@ composer install
 
 # Rollback - migrations (se necessário)
 `php artisan migrate:rollback`
+
+# dicas uteis
+```
+    php artisan key:generate
+    php artisan cache:clear
+    php artisan route:clear
+    php artisan config:clear 
+    php artisan view:clear 
+```
 
 ### POSTMAN
 ```
@@ -78,5 +87,19 @@ composer install
 ## Usei para teste um gerador de SKU
 
 `binary-cats/laravel-sku`
+
+# Docker
+> Caso queiram usar docker para da o start, criei um dockerfile basico, que se inicia pelo docker-compose.
+## Comandos basicos para iniciar o docker-compose
+`docker-compose up -d`
+> verificar endereço de ip dos containers
+`docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)`
+> dentro do container
+`docker exec -it app sh`
+> dentro container vc pode encontrar via cd /var/www/app-4bb61698, e alterar o ip do .env via 'vim'
+
+
+## stop docker
+`docker-compose down -v`
 
 - https://bitbucket.org/cpdrenato/app-4bb61698/

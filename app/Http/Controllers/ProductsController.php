@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Helpers\SKUGenerator;
 use App\Http\Requests\ProductsRequest;
 use App\Http\Resources\ProductsResource;
 use App\Http\Controllers\HistoryController;
+use BinaryCats\Sku\Concerns\SkuGenerator as Sku;
 
 class ProductsController extends Controller
 {
@@ -119,6 +121,20 @@ class ProductsController extends Controller
         }
 
         return response($response, 200);
+    }
+
+    public function updateSkus()
+    {
+        $prodSku = Products::get()->each(function ($product) {
+            \Log::debug(json_encode($product));
+            $SkuGenerator = new SkuGenerator;
+            $sku = new Sku;
+            $product->update([
+                'sku' => $sku($product)->render()
+                //'sku' => $SkuGenerator->generate($product->name, $product->toArray())
+
+            ]);
+        });
     }
 
     /**

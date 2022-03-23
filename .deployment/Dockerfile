@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
 && apt-get -y install zip curl git vim lsb-release nginx cron ssh php php7.4-readline php7.4-zip php7.4-fpm php7.4-bcmath php7.4-xml php7.4-mysql php7.4-mongodb php7.4-mbstring  php-dev php-pear  \
 build-essential cmake libeigen3-dev libboost-all-dev libcgal-dev libmpfr-dev libomp-dev m4 lzip php7.4-curl php-redis supervisor php-imagick ffmpeg \
-php7.4-gd php7.4-pgsql
+php7.4-gd fontconfig-config freetype2-demos php7.4-pgsql telnet htop
 #Install mongodb for php
 #RUN pecl install mongodb
 
@@ -65,7 +65,7 @@ RUN (crontab -l 2>/dev/null; echo "* * * * * /usr/bin/php /var/www/app-4bb61698/
 #Clone repo and install dependencies
 RUN chmod 400 /root/.ssh/id_rsa
 # RUN ssh-keyscan bitbucket.org > /root/.ssh/known_hosts
-# RUN git clone git@bitbucket.org:xsensors/app-4bb61698.git -b master app-4bb61698
+# RUN git clone git@bitbucket.org:cpdrenato/app-4bb61698.git -b master app-4bb61698
 
 ADD ./configfiles/oauth-private.key /var/www/app-4bb61698/storage/oauth-private.key
 ADD ./configfiles/oauth-public.key /var/www/app-4bb61698/storage/oauth-public.key
@@ -75,11 +75,19 @@ ADD ./configfiles/oauth-public.key /var/www/app-4bb61698/storage/oauth-public.ke
 # RUN php /var/www/app-4bb61698/artisan config:clear
 # RUN php /var/www/app-4bb61698/artisan config:cache
 
+# Assign permissions of the working directory to the www-data user
+RUN chown -R www-data:www-data \
+        /var/www/app-4bb61698/storage 
+        # \
+        # /var/www/app-4bb61698/bootstrap/cache
+
 #Set user folder
-# RUN chown -R www-data:root /var/www/app-4bb61698
-# RUN chmod -R 755 /var/www/app-4bb61698/storage
+RUN chown -R www-data:root /var/www/app-4bb61698
+RUN chmod -R 777 /var/www/app-4bb61698/storage
 # RUN chmod -R 755 /var/www/app-4bb61698/bootstrap
 
+# Clean packages
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #
 EXPOSE 80 443

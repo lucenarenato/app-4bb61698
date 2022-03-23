@@ -22,6 +22,7 @@ Route::post('/products', 'ProductsController@store');
 Route::get('/products', 'ProductsController@index');
 Route::get('/products/{id}', 'ProductsController@show');
 Route::put('/products/{id}', 'ProductsController@update');
+// Route::put('/products', 'ProductsController@updateSkus');
 Route::delete('/products/{id}', 'ProductsController@destroy');
 
 Route::get('/history', 'HistoryController@index');
