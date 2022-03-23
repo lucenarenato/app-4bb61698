@@ -1,6 +1,4 @@
 <p align="center"><img src="2022-03-23_10-16.png" width="400"></p>
-<br>
-<p align="center"><img src="2022-03-23_18-23.png" width="400"></p>
 
 > Usei bitbucket
 
@@ -9,6 +7,8 @@
 - SO Linux Ubuntu 20.04
 - PHP 7.4.27 
 - laravel 7.0
+
+### Usei VSCode para codificar, e browser Firefox para testes com vue, e POSTMAN;
 
 Iniciei com `git flow init`
 
@@ -89,6 +89,15 @@ composer install
 ## Usei para teste um gerador de SKU
 
 `binary-cats/laravel-sku`
+
+## Vue.js para consumir a api.
+<p align="center"><img src="2022-03-23_18-23.png" width="400"></p>
+
+## Yarn install
+```
+  yarn install
+  yarn run watch 
+```
 
 # Docker
 > Caso queiram usar docker para da o start, criei um dockerfile basico, que se inicia pelo docker-compose.
