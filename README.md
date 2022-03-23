@@ -1,5 +1,7 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
+> Usei bitbucket
+
 # Iniciando o projeto
 
 - SO Linux Ubuntu 20.04
@@ -76,3 +78,5 @@ composer install
 ## Usei para teste um gerador de SKU
 
 `binary-cats/laravel-sku`
+
+- https://bitbucket.org/cpdrenato/app-4bb61698/
