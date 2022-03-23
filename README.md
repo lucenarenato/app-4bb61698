@@ -91,11 +91,11 @@ composer install
 # Docker
 > Caso queiram usar docker para da o start, criei um dockerfile basico, que se inicia pelo docker-compose.
 ## Comandos basicos para iniciar o docker-compose
-`docker-compose up -d`
+```docker-compose up -d```
 > verificar endereço de ip dos containers
-`docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)`
+```docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)```
 > dentro do container
-`docker exec -it app sh`
+```docker exec -it app sh```
 > dentro container vc pode encontrar via cd /var/www/app-4bb61698, e alterar o ip do .env via 'vim'
 
 
