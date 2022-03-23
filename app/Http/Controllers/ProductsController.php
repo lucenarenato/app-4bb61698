@@ -15,6 +15,12 @@ class ProductsController extends Controller
 {
     public function index(Products $Products)
     {
+        $products = Products::all()->toArray();
+        return array_reverse($products);
+    }
+
+    public function all(Products $Products)
+    {
         $response = [];
         $allData = ProductsResource::collection($Products::all());
         // Condition for if there is no data to be displayed
