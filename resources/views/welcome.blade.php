@@ -61,6 +61,20 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            * {
+                padding:0;
+                margin:0;
+            }
+            .content {
+                display: table;
+                width: 100%;
+                height: 100vh;
+                padding: 100px 0;
+                color: white;
+                background: url('img/body.jpg') no-repeat bottom center scroll;
+                background-position: 30% 45%;
+                background-size: cover;
+            }
         </style>
     </head>
     <body>
@@ -81,18 +95,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Appmax - Desafio Técnico Fullstack
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://blog.renatolucena.net">Blog</a>
+                    <a href="https://renatolucena.net">Renato</a>
+                    <a href="https://bitbucket.org/cpdrenato/app-4bb61698/">Bitbucket</a>
                 </div>
             </div>
         </div>
